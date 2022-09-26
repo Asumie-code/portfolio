@@ -92,8 +92,8 @@ const Nav = (): JSX.Element => {
           <Typography
             variant="h5"
             noWrap
-            component="a"
-            href=""
+            component={NavLink}
+            to='/portfolio'
             sx={{
               mr: 2,
               display: { xs: 'flex', md: 'none' },
