@@ -12,11 +12,11 @@ function App() {
     <Router>
       <Nav />
       <Routes>
-        <Route path='/portfolio'  element={<Home />} />
-        <Route path='/about'  element={<About />} />
-        <Route path='/contact'  element={<Contact />} />
-        <Route path='/projects'  element={<Projects />} />
-        <Route path='/Skills'  element={<Skills />} />
+        <Route caseSensitive path='/portfolio'  element={<Home />} />
+        <Route caseSensitive path='/about'  element={<About />} />
+        <Route caseSensitive path='/contact'  element={<Contact />} />
+        <Route caseSensitive path='/projects'  element={<Projects />} />
+        <Route caseSensitive path='/skills'  element={<Skills />} />
 
       </Routes>
     </Router>
