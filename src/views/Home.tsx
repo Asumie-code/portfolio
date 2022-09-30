@@ -1,6 +1,5 @@
 import { Paper, Typography } from "@mui/material";
 import Container from "@mui/material/Container";
-import CssBaseline from "@mui/material/CssBaseline";
 import Box from "@mui/material/Box"
 import Button from '@mui/material/Button'
 
@@ -9,8 +8,8 @@ import Button from '@mui/material/Button'
 const Home = (): JSX.Element => {
     return (
         <>
-            <CssBaseline />
-            <Container >
+           
+            <Container sx={{my: 10}} >
                 <Box
                     sx={{
                         display: 'flex',

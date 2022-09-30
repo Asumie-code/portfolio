@@ -1,8 +1,9 @@
+import Form from "../component/Form";
 
 const Contact = (): JSX.Element => {
     return (
         <div>
-            Contact
+            <Form />
         </div>
     )
 }
