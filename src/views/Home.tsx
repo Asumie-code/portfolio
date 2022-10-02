@@ -16,6 +16,7 @@ const Home = (): JSX.Element => {
                         '& > :not(style)': {
                             px: 5,
                             py: 6,
+                            width: 0.6
 
                         },
                     }}
@@ -32,7 +33,7 @@ const Home = (): JSX.Element => {
 
                             }}
                         >
-                            Lorem,<br /> ipsum dolor <br /> sit amet.
+                            Hi,<br /> I'm Issam <br /> Web developer.
                         </Typography>
                         <Typography
                             component='p'

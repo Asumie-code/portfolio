@@ -14,7 +14,7 @@ const Skills = (): JSX.Element => {
                         '& > :not(style)': {
                             px: 5,
                             py: 6,
-                            width: 0.5
+                            width: 0.6
                         },
                     }}
                 >
