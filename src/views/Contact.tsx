@@ -1,5 +1,4 @@
 import Form from "../component/Form";
-import Container from "@mui/material/Container";
 import Box from "@mui/material/Box";
 import Paper from "@mui/material/Paper";
 import Typography from "@mui/material/Typography";
@@ -8,14 +7,13 @@ const Contact = (): JSX.Element => {
     return (
         <>
 
-            <Container sx={{ my: 10 }} >
                 <Box
                     sx={{
                         display: 'flex',
                         '& > :not(style)': {
                             px: 5,
                             py: 6,
-                            width: 0.6
+                            width: 0.5
                         },
                     }}
                 >
@@ -45,7 +43,6 @@ const Contact = (): JSX.Element => {
                     </Paper>
                 </Box>
 
-            </Container>
         </>
     )
 }

@@ -6,19 +6,21 @@ import About from './views/About';
 import Contact from './views/Contact';
 import Projects from './views/Projects';
 import Skills from './views/Skills';
+import Container from '@mui/material/Container'
 
 function App() {
   return (
     <Router>
       <Nav />
-      <Routes>
-        <Route caseSensitive path='/portfolio'  element={<Home />} />
-        <Route caseSensitive path='/about'  element={<About />} />
-        <Route caseSensitive path='/contact'  element={<Contact />} />
-        <Route caseSensitive path='/projects'  element={<Projects />} />
-        <Route caseSensitive path='/skills'  element={<Skills />} />
-
-      </Routes>
+      <Container maxWidth='xl'  sx={{ mb: 10, mt: 15 }}>
+        <Routes>
+          <Route caseSensitive path='/portfolio' element={<Home />} />
+          <Route caseSensitive path='/about' element={<About />} />
+          <Route caseSensitive path='/contact' element={<Contact />} />
+          <Route caseSensitive path='/projects' element={<Projects />} />
+          <Route caseSensitive path='/skills' element={<Skills />} />
+        </Routes>
+      </Container>
     </Router>
   );
 }

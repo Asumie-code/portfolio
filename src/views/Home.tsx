@@ -1,53 +1,61 @@
 import { Paper, Typography } from "@mui/material";
-import Container from "@mui/material/Container";
 import Box from "@mui/material/Box"
 import Button from '@mui/material/Button'
+import { NavLink } from 'react-router-dom';
+
 
 
 
 const Home = (): JSX.Element => {
     return (
         <>
-           
-            <Container sx={{my: 10}} >
-                <Box
-                    sx={{
-                        display: 'flex',
-                        '& > :not(style)': {
-                            px: 5,
-                            py: 6,
-                            width: 0.6
 
-                        },
+            <Box
+                sx={{
+                    display: 'flex',
+                    '& > :not(style)': {
+                        px: 5,
+                        py: 6,
+                        width: 0.5
+
+                    },
+                }}
+            >
+                <Paper
+                    sx={{
+                        pl: 2
                     }}
                 >
-                    <Paper 
+                    <Typography
+                        variant='h1'
+                        component='h1'
                         sx={{
-                            pl: 2
+                            mb: 3,
+                            fontWeight: 400
+
                         }}
                     >
-                        <Typography
-                            variant='h1'
-                            component='h1'
-                            sx={{
+                        Hi,<br /> I'm Issam <br /> Web developer.
+                    </Typography>
+                    <Typography
+                        component='p'
+                        sx={{
+                            mb: 3
+                        }}
+                    >
+                        Lorem,  ipsum dolor sit amet consectetur adipisicing elit.
+                    </Typography>
+                    <Button
+                        component={NavLink}
+                        to='/contact'
+                        sx={{ width: 220, height: 50 }}
+                        variant='outlined'
+                    >
+                        Contact  Me!
+                    </Button>
+                </Paper>
+            </Box>
 
-                            }}
-                        >
-                            Hi,<br /> I'm Issam <br /> Web developer.
-                        </Typography>
-                        <Typography
-                            component='p'
-                            sx={{
-
-                            }}
-                        >
-                            Lorem,  ipsum dolor sit amet consectetur adipisicing elit.
-                        </Typography>
-                        <Button variant='outlined'>Contact  Me! </Button>
-                    </Paper>
-                </Box>
-
-            </Container>
         </>
     )
 }

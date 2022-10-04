@@ -1,5 +1,4 @@
 import { Paper, Typography } from "@mui/material";
-import Container from "@mui/material/Container";
 import Box from "@mui/material/Box"
 
 
@@ -8,14 +7,13 @@ const About = (): JSX.Element => {
     return (
         <>
            
-            <Container sx={{my: 10}} >
                 <Box
                     sx={{
                         display: 'flex',
                         '& > :not(style)': {
                             px: 5,
                             py: 6,
-                            width: 0.6
+                            width: 0.5
                         },
                     }}
                 >
@@ -61,7 +59,6 @@ const About = (): JSX.Element => {
                     </Paper>
                 </Box>
 
-            </Container>
         </>
     )
 }

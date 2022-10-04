@@ -9,7 +9,7 @@ import MenuIcon from '@mui/icons-material/Menu';
 import Container from '@mui/material/Container';
 import Button from '@mui/material/Button';
 import MenuItem from '@mui/material/MenuItem';
-import AdbIcon from '@mui/icons-material/Adb';
+import CodeIcon from '@mui/icons-material/Code';
 import { NavLink } from 'react-router-dom';
 
 const pages = ['About', 'Skills', 'Projects', 'Contact'];
@@ -29,10 +29,10 @@ const Nav = (): JSX.Element => {
 
 
   return (
-    <AppBar position="static">
+    <AppBar position="fixed">
       <Container maxWidth="xl">
         <Toolbar disableGutters>
-          <AdbIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
+          <CodeIcon fontSize='large' sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
           <Typography
             variant="h6"
             noWrap
@@ -48,7 +48,7 @@ const Nav = (): JSX.Element => {
               textDecoration: 'none',
             }}
           >
-            LOGO
+            ISSAM
           </Typography>
 
 
@@ -88,7 +88,7 @@ const Nav = (): JSX.Element => {
               ))}
             </Menu>
           </Box>
-          <AdbIcon sx={{ display: { xs: 'flex', md: 'none' }, mr: 1 }} />
+          <CodeIcon fontSize='large' sx={{ display: { xs: 'flex', md: 'none' }, mr: 1 }} />
           <Typography
             variant="h5"
             noWrap
@@ -105,7 +105,7 @@ const Nav = (): JSX.Element => {
               textDecoration: 'none',
             }}
           >
-            LOGO
+            ISSAM
           </Typography>
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
             {pages.map((page) => (
