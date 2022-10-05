@@ -8,11 +8,14 @@ import PDialog from './PDialog'
 
 
 interface PCardProps {
-  img: string,
-  projectTitle?: string, 
+  mainImage: string,
+  projectTitle?: string,
+  sourceCodeLink?: string, 
+  link?: string,
+  imgs: string[] 
 }
 
-const PCard = ({projectTitle = 'Default Title', img}: PCardProps): JSX.Element => {
+const PCard = ({imgs, link, sourceCodeLink, projectTitle = 'Default Title', mainImage}: PCardProps): JSX.Element => {
 
   const [open, setOpen] = useState<boolean>(false)
   const handleOpen =  () => {
@@ -31,7 +34,7 @@ const PCard = ({projectTitle = 'Default Title', img}: PCardProps): JSX.Element =
         <CardMedia
           component="img"
           height="240"
-          image={img}
+          image={mainImage}
           alt="green iguana"
         />
         <CardContent>
@@ -41,7 +44,7 @@ const PCard = ({projectTitle = 'Default Title', img}: PCardProps): JSX.Element =
         </CardContent>
       </CardActionArea >
     </Card>
-    <PDialog title={projectTitle} open={open} handleClose={handleClose} />
+    <PDialog imgs={imgs} link={link} sourceCodeLink={sourceCodeLink} title={projectTitle} open={open} handleClose={handleClose} />
     </div>
   );
 }

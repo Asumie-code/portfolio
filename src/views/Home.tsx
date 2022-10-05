@@ -23,7 +23,7 @@ const Home = (): JSX.Element => {
             >
                 <Paper
                     sx={{
-                        pl: 2
+                        px: 0
                     }}
                 >
                     <Typography
@@ -31,11 +31,12 @@ const Home = (): JSX.Element => {
                         component='h1'
                         sx={{
                             mb: 3,
+                            fontSize: '5.5rem',
                             fontWeight: 400
 
                         }}
                     >
-                        Hi,<br /> I'm Issam <br /> Web developer.
+                        Hi,<br />I'm Issam<br />Web developer.
                     </Typography>
                     <Typography
                         component='p'
