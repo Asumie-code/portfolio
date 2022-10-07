@@ -37,7 +37,7 @@ const Nav = (): JSX.Element => {
             variant="h6"
             noWrap
             component={NavLink}
-            to='/portfolio'
+            to='/'
             sx={{
               mr: 2,
               display: { xs: 'none', md: 'flex' },
@@ -82,7 +82,7 @@ const Nav = (): JSX.Element => {
               }}
             >
               {pages.map((page) => (
-                <MenuItem key={page} component={NavLink} to={`/portfolio/${page.toLowerCase()}`} onClick={handleCloseNavMenu}>
+                <MenuItem key={page} component={NavLink} to={`/${page.toLowerCase()}`} onClick={handleCloseNavMenu}>
                   <Typography textAlign="center">{page}</Typography>
                 </MenuItem>
               ))}
@@ -93,7 +93,7 @@ const Nav = (): JSX.Element => {
             variant="h5"
             noWrap
             component={NavLink}
-            to='/portfolio'
+            to='/'
             sx={{
               mr: 2,
               display: { xs: 'flex', md: 'none' },
@@ -113,7 +113,7 @@ const Nav = (): JSX.Element => {
                 key={page}
                 onClick={handleCloseNavMenu}
                 component={NavLink}
-                to={`/portfolio/${page.toLowerCase()}`}
+                to={`/${page.toLowerCase()}`}
                 sx={{ my: 2, color: 'white', display: 'block' }}
               >
                 {page}
