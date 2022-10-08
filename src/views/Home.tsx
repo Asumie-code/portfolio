@@ -2,6 +2,20 @@ import { Paper, Typography } from "@mui/material";
 import Box from "@mui/material/Box"
 import Button from '@mui/material/Button'
 import { NavLink } from 'react-router-dom';
+import { styled } from "@mui/system";
+import homeSketch from '../sketches/homeSketch'
+import Sketch from 'react-p5'
+
+const HomeBackground = styled(Sketch)({
+    margin: 0,
+    overflow: 'hidden',
+    position: 'absolute',
+    top: -7,
+    left: -8,
+    zIndex: -1
+
+});
+
 
 
 
@@ -9,21 +23,22 @@ import { NavLink } from 'react-router-dom';
 const Home = (): JSX.Element => {
     return (
         <>
-
             <Box
                 sx={{
                     display: 'flex',
                     '& > :not(style)': {
                         px: 5,
                         py: 6,
-                        width: 0.5
-
+                        width: 0.5,
                     },
+                    backgroundColor: 'transparent',
                 }}
             >
                 <Paper
                     sx={{
-                        px: 0
+                        px: 0,
+                        backgroundColor: 'transparent',
+                        color: 'white'
                     }}
                 >
                     <Typography
@@ -32,7 +47,7 @@ const Home = (): JSX.Element => {
                         sx={{
                             mb: 3,
                             fontSize: '5.5rem',
-                            fontWeight: 400
+                            fontWeight: 400,
 
                         }}
                     >
@@ -48,7 +63,7 @@ const Home = (): JSX.Element => {
                     </Typography>
                     <Button
                         component={NavLink}
-                        to='/contact'
+                        to='/portfolio/contact'
                         sx={{ width: 220, height: 50 }}
                         variant='outlined'
                     >
@@ -56,6 +71,7 @@ const Home = (): JSX.Element => {
                     </Button>
                 </Paper>
             </Box>
+            <HomeBackground mouseMoved={homeSketch.mouseMoved} windowResized={homeSketch.windowResized} setup={homeSketch.setup} draw={homeSketch.draw} />
 
         </>
     )

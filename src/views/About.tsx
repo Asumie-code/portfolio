@@ -1,5 +1,15 @@
 import { Paper, Typography } from "@mui/material";
 import Box from "@mui/material/Box"
+import { styled } from "@mui/system";
+import aboutSketch from '../sketches/aboutSketch'
+import Sketch from 'react-p5'
+
+
+const AboutBackground = styled(Sketch)({
+    margin: 0,
+    overflow: 'hidden'
+
+});
 
 
 
@@ -57,6 +67,7 @@ const About = (): JSX.Element => {
                         </Typography>
                         
                     </Paper>
+                <AboutBackground mouseMoved={aboutSketch.mouseMoved} windowResized={aboutSketch.windowResized} setup={aboutSketch.setup} draw={aboutSketch.draw} />
                 </Box>
 
         </>
