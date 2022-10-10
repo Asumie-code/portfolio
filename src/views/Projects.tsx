@@ -6,7 +6,6 @@ import useMediaQuery from '@mui/material/useMediaQuery';
 
 const Projects = (): JSX.Element => {
     const matches = useMediaQuery('(max-width: 700px)')
-    const matches2 = useMediaQuery('(max-width: 1290px)')
 
 
     return (
