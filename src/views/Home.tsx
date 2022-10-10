@@ -3,14 +3,16 @@ import Box from "@mui/material/Box"
 import Button from '@mui/material/Button'
 import { NavLink } from 'react-router-dom';
 import { styled } from "@mui/system";
+import useMediaQuery from '@mui/material/useMediaQuery';
 import homeSketch from '../sketches/homeSketch'
 import Sketch from 'react-p5'
+
 
 const HomeBackground = styled(Sketch)({
     margin: 0,
     overflow: 'hidden',
     position: 'absolute',
-    top: -7,
+    top: -6.3,
     left: -8,
     zIndex: -1
 
@@ -21,6 +23,11 @@ const HomeBackground = styled(Sketch)({
 
 
 const Home = (): JSX.Element => {
+
+    const matches = useMediaQuery('(max-width: 700px)')
+    const matches2 = useMediaQuery('(max-width: 1290px)')
+
+
     return (
         <>
             <Box
@@ -29,12 +36,13 @@ const Home = (): JSX.Element => {
                     '& > :not(style)': {
                         px: 5,
                         py: 6,
-                        width: 0.5,
+                        width: matches2? 1 : 0.5,
                     },
                     backgroundColor: 'transparent',
                 }}
             >
                 <Paper
+                    elevation={0}
                     sx={{
                         px: 0,
                         backgroundColor: 'transparent',
@@ -42,11 +50,11 @@ const Home = (): JSX.Element => {
                     }}
                 >
                     <Typography
-                        variant='h1'
+                        variant='h1' 
                         component='h1'
                         sx={{
                             mb: 3,
-                            fontSize: '5.5rem',
+                            fontSize: (matches? '3rem' : '5.5rem'),
                             fontWeight: 400,
 
                         }}
@@ -56,15 +64,16 @@ const Home = (): JSX.Element => {
                     <Typography
                         component='p'
                         sx={{
-                            mb: 3
+                            mb: 3,
+                            fontSize: (matches? '0.75rem': '1rem')
                         }}
                     >
                         Lorem,  ipsum dolor sit amet consectetur adipisicing elit.
                     </Typography>
                     <Button
                         component={NavLink}
-                        to='/portfolio/contact'
-                        sx={{ width: 220, height: 50 }}
+                        to='/contact'
+                        sx={{ width: matches? .8 * 220 :220, height: matches ? .8 * 50 :50 }}
                         variant='outlined'
                     >
                         Contact  Me!

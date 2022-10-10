@@ -9,7 +9,7 @@ import TextField from '@mui/material/TextField'
 
 const Form = (): JSX.Element => {
     return (
-        <Paper elevation={0} sx={{ p: 3 }}>
+        <Paper elevation={0} >
             <Grid container spacing={3}>
                 <Grid item xs={12} sm={6}>
                     <TextField

@@ -24,6 +24,7 @@ const HomeSketch: {
 
   windowResized: (p5: p5Types) => {
     p5.resizeCanvas(window.innerWidth, window.innerHeight);
+    
   },
 
   mouseMoved: () => {

@@ -12,7 +12,7 @@ function App() {
   return (
     <Router>
       <Nav />
-      <Container maxWidth='xl'  sx={{ mb: 10, mt: 15 }}>
+      <Container maxWidth='xl'  sx={{ mb: 2.5, mt: 15 }}>
         <Routes>
           <Route caseSensitive path='/' element={
             <Home />

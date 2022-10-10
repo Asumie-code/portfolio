@@ -2,6 +2,8 @@ import { Paper, Slider, Typography } from "@mui/material";
 import Box from "@mui/material/Box"
 import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
+import useMediaQuery from '@mui/material/useMediaQuery';
+
 
 const skills = [
     {
@@ -23,15 +25,21 @@ const skills = [
 ]
 
 const Skills = (): JSX.Element => {
+
+    const matches = useMediaQuery('(max-width: 700px)')
+    const matches2 = useMediaQuery('(max-width: 1290px)')
+
+
     return (
         <>
                 <Box
                     sx={{
                         display: 'flex',
+                        flexDirection: matches ? 'column' : 'row' ,
                         '& > :not(style)': {
                             px: 5,
                             py: 6,
-                            width: 0.5
+                            width: matches ? 1 : 0.5
                         },
                     }}
                 >
@@ -44,7 +52,8 @@ const Skills = (): JSX.Element => {
                             variant='h2'
                             component='h2'
                             sx={{
-                                mb: '1.5rem'
+                                mb: '1.5rem',
+                                fontSize: matches ? '2.8rem' :  '3.75rem'
                             }}
                         >
                             Lorem,<br /> ipsum dolor <br /> sit amet.
@@ -52,7 +61,8 @@ const Skills = (): JSX.Element => {
                         <Typography
                             component='p'
                             sx={{
-                                mb: '1.5rem'
+                                mb: '1.5rem',
+                                fontSize: matches?  '0.8rem' : '1rem'
                             }}
                         >
                             Lorem, ipsum dolor sit amet consectetur adipisicing elit. Facilis provident sint neque cumque, quas perspiciatis modi eveniet magnam, natus aliquid ipsum distinctio ex exercitationem asperiores.
@@ -60,7 +70,8 @@ const Skills = (): JSX.Element => {
                         <Typography
                             component='p'
                             sx={{
-                                mb: '1.5rem'
+                                mb: '1.5rem',
+                                fontSize: matches?  '0.8rem' : '1rem'
                             }}
                         >
                             Lorem, ipsum dolor sit amet consectetur adipisicing elit. Facilis provident sint neque cumque, quas perspiciatis modi eveniet magnam, natus aliquid ipsum distinctio ex exercitationem asperiores. distinctio ex exercitationem asperiores
@@ -68,7 +79,8 @@ const Skills = (): JSX.Element => {
                         <Typography
                             component='p'
                             sx={{
-                                mb: '1.5rem'
+                                mb: '1.5rem',
+                                fontSize: matches?  '0.8rem' : '1rem'
                             }}
                         >
                             Lorem, ipsum dolor sit amet consectetur adipisicing elit. Facilis provident sint neque cumque,
@@ -86,7 +98,9 @@ const Skills = (): JSX.Element => {
                                     <Typography
                                         variant='h6'
                                         component='h6'
-
+                                        sx={{
+                                            fontSize: matches ? '1rem' : '1.25rem'
+                                        }}
                                     >
                                         {skill.name}
                                     </Typography>
