@@ -2,7 +2,6 @@ import p5Types from "p5";
 
 let x = 150;
 let y = 156;
-
 const HomeSketch: {
   setup: (p5: p5Types, canvasParentRef: Element) => void;
   draw: (p5: p5Types) => void;
@@ -14,7 +13,7 @@ const HomeSketch: {
   setup: (p5: p5Types, canvasParentRef: Element) => {
     p5.createCanvas(window.innerWidth, window.innerHeight).parent(
       canvasParentRef
-    );
+    );  
   },
   
   draw: (p5: p5Types) => {

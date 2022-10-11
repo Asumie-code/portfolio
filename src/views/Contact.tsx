@@ -7,8 +7,8 @@ import useMediaQuery from '@mui/material/useMediaQuery';
 
 const Contact = (): JSX.Element => {
 
-    const matches = useMediaQuery('(max-width: 700px)')
-    const matches2 = useMediaQuery('(max-width: 1290px)')
+    const screen_700 = useMediaQuery('(max-width: 700px)')
+    const screen_1290 = useMediaQuery('(max-width: 1290px)')
 
     return (
         <>
@@ -19,7 +19,7 @@ const Contact = (): JSX.Element => {
                         '& > :not(style)': {
                             px: 5,
                             py: 6,
-                            width: matches2? 1 : 0.5
+                            width: screen_1290? 1 : 0.5
                         },
                     }}
                 >
@@ -29,11 +29,12 @@ const Contact = (): JSX.Element => {
                         }}
                     >
                         <Typography
+                            color='primary'
                             variant='h2'
                             component='h2'
                             sx={{
                                 mb: '1.5rem',
-                                fontSize: matches? '2.8rem' : '3.25rem'
+                                fontSize: screen_700? '2.8rem' : '3.25rem'
                             }}
                         >
                             Contact me
@@ -42,7 +43,7 @@ const Contact = (): JSX.Element => {
                             component='p'
                             sx={{
                                 mb: '1.5rem',
-                                fontSize: matches? '0.8rem' : '1rem'
+                                fontSize: screen_700? '0.8rem' : '1rem'
                             }}
                         >
                             Lorem, ipsum dolor sit amet consectetur adipisicing elit. Facilis provident sint neque cumque, quas perspiciatis modi eveniet magnam, natus aliquid ipsum distinctio ex exercitationem asperiores.

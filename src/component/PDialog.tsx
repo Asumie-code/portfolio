@@ -50,7 +50,7 @@ const PDialog = ({ sourceCodeLink = '#', link = '#', imgs, title = 'default titl
   return (
 
     <Dialog
-      
+
       open={open}
       onClose={handleClose}
       scroll='paper'
@@ -59,7 +59,7 @@ const PDialog = ({ sourceCodeLink = '#', link = '#', imgs, title = 'default titl
     >
       <DialogTitle id="scroll-dialog-title">{title}</DialogTitle>
       <DialogContent dividers>
-        <Card sx={{ maxWidth: 600 , mb: 2}}>
+        <Card sx={{ maxWidth: 600, mb: 2 }}>
           <CardMedia
             component="img"
             alt="green iguana"
@@ -73,10 +73,10 @@ const PDialog = ({ sourceCodeLink = '#', link = '#', imgs, title = 'default titl
             justifyContent: 'space-evenly'
           }}>
             <Button size="small" disabled={(current === 0)} onClick={handlePrevious}>
-               <ArrowBackIosNewIcon />
+              <ArrowBackIosNewIcon />
             </Button>
             <Button size="small" disabled={(current === imgs.length - 1)} onClick={handleNext}>
-               <ArrowForwardIosIcon />
+              <ArrowForwardIosIcon />
             </Button>
           </CardActions>
         </Card>
@@ -85,14 +85,11 @@ const PDialog = ({ sourceCodeLink = '#', link = '#', imgs, title = 'default titl
           ref={descriptionElementRef}
           tabIndex={-1}
         >
-          {[...new Array(1)]
-            .map(
-              () => `Cras mattis consectetur purus sit amet fermentum.
-Cras justo odio, dapibus ac facilisis in, egestas eget quam.
-Morbi leo risus, porta ac consectetur ac, vestibulum at eros.
-Praesent commodo cursus magna, vel scelerisque nisl consectetur et.`,
-            )
-            .join('\n')}
+          Cras mattis consectetur purus sit amet fermentum.
+          Cras justo odio, dapibus ac facilisis in, egestas eget quam.
+          Morbi leo risus, porta ac consectetur ac, vestibulum at eros.
+          Praesent commodo cursus magna, vel scelerisque nisl consectetur et.
+
         </DialogContentText>
       </DialogContent>
       <DialogActions>

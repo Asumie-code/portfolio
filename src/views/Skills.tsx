@@ -28,7 +28,6 @@ const Skills = (): JSX.Element => {
 
     const matches = useMediaQuery('(max-width: 700px)')
 
-
     return (
         <>
                 <Box
@@ -48,6 +47,7 @@ const Skills = (): JSX.Element => {
                         }}
                     >
                         <Typography
+                            color='primary'
                             variant='h2'
                             component='h2'
                             sx={{
