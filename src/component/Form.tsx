@@ -2,15 +2,52 @@ import Button from '@mui/material/Button';
 import Grid from '@mui/material/Grid'
 import Paper from '@mui/material/Paper';
 import TextField from '@mui/material/TextField'
+import { ChangeEvent, FormEvent, useState } from 'react'
+import emailjs from '@emailjs/browser'
+
 
 
 
 
 
 const Form = (): JSX.Element => {
+
+    const [formInputs, setFormInputs] = useState<{
+        email: string,
+        message: string,
+        name?: string,
+        subject?: string
+        
+    }>({ email: '', message: '', name: '', subject: '' })
+
+
+    const handleChange = (e: ChangeEvent<HTMLInputElement>): void => {
+        setFormInputs({
+            ...formInputs,
+            [e.target.name]: e.target.value
+        })
+    }
+
+
+    const sendEmail = async (e: FormEvent) => {
+        e.preventDefault()
+        try {
+            const response = await emailjs.send('service_8i4p5do', 'template_lcztgy6', formInputs, 'fXd413wtNKxbm83_9')
+            
+        } catch (e) {
+            // todo 
+            console.log(e)
+        }
+    }
+
     return (
         <Paper elevation={0} >
-            <Grid container spacing={3}>
+            <Grid
+                container
+                spacing={3}
+                component='form'
+                onSubmit={sendEmail}
+            >
                 <Grid item xs={12} sm={6}>
                     <TextField
                         id='name'
@@ -19,6 +56,8 @@ const Form = (): JSX.Element => {
                         fullWidth
                         autoComplete='given-name'
                         variant='standard'
+                        value={formInputs.name}
+                        onChange={handleChange}
                     />
                 </Grid>
                 <Grid item xs={12} sm={6}>
@@ -31,6 +70,9 @@ const Form = (): JSX.Element => {
                         fullWidth
                         autoComplete='email'
                         variant='standard'
+                        value={formInputs.email}
+                        onChange={handleChange}
+
                     />
                 </Grid>
                 <Grid item xs={12} >
@@ -41,6 +83,9 @@ const Form = (): JSX.Element => {
                         fullWidth
                         autoComplete='given-name'
                         variant='standard'
+                        value={formInputs.subject}
+                        onChange={handleChange}
+
                     />
                 </Grid>
                 <Grid item xs={12} >
@@ -53,10 +98,13 @@ const Form = (): JSX.Element => {
                         multiline
                         rows={6}
                         variant='standard'
+                        value={formInputs.message}
+                        onChange={handleChange}
+
                     />
                 </Grid>
                 <Grid item xs={12} sm={6}>
-                    <Button sx={{mt: 1}} variant='outlined'>Contact  Me! </Button>
+                    <Button type='submit' sx={{ mt: 1 }} variant='outlined'>Contact  Me! </Button>
 
                 </Grid>
             </Grid>
