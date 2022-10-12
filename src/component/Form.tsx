@@ -33,6 +33,8 @@ const Form = (): JSX.Element => {
         e.preventDefault()
         try {
             const response = await emailjs.send('service_8i4p5do', 'template_lcztgy6', formInputs, 'fXd413wtNKxbm83_9')
+            // todo 
+            console.log(response)
             
         } catch (e) {
             // todo 
