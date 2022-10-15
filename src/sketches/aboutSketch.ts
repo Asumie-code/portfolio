@@ -20,7 +20,7 @@ const aboutSketch: {
   },
   
   draw: (p5: p5Types) => {
-    p5.background(0);
+    p5.background(15,15,15);
     p5.ellipse(x, y, 70, 70);
   },
 

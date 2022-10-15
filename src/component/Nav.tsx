@@ -29,7 +29,7 @@ const Nav = (): JSX.Element => {
 
 
   return (
-    <AppBar position="fixed">
+    <AppBar  position="fixed">
       <Container maxWidth="xl">
         <Toolbar disableGutters>
           <CodeIcon fontSize='large' sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />

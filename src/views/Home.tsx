@@ -56,10 +56,13 @@ const Home = (): JSX.Element => {
                             mb: 3,
                             fontSize: (screen_700? '3rem' : '5.5rem'),
                             fontWeight: 400,
-
+                            '& > span': {
+                                fontSize: (screen_700? '3rem' : '5.5rem'),
+                                fontWeight: 400,
+                            }
                         }}
                     >
-                        Hi,<br />I'm Issam<br />Web developer.
+                        Hi,<br /> I'm<Typography color='primary' component='span'> Issam</Typography><br />Web developer.
                     </Typography>
                     <Typography
                         component='p'
