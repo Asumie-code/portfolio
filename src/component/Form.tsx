@@ -1,24 +1,58 @@
 import Button from '@mui/material/Button';
 import Grid from '@mui/material/Grid'
 import Paper from '@mui/material/Paper';
+import Popover from '@mui/material/Popover'
 import TextField from '@mui/material/TextField'
-import { ChangeEvent, FormEvent, useState } from 'react'
+import Typography from '@mui/material/Typography'
+import { ChangeEvent, FormEvent, useState, useEffect } from 'react'
 import emailjs from '@emailjs/browser'
-
+import useMediaQuery from '@mui/material/useMediaQuery';
 
 
 
 
 
 const Form = (): JSX.Element => {
+    const screen_700 = useMediaQuery('(max-width: 700px)')
 
     const [formInputs, setFormInputs] = useState<{
         email: string,
         message: string,
         name?: string,
         subject?: string
-        
+
     }>({ email: '', message: '', name: '', subject: '' })
+
+
+    const [popOpen, setpopOpen] = useState<{
+        content: string,
+        colorStatus: string,
+        open: boolean
+    }>(
+        {
+            content: '',
+            colorStatus: '',
+            open: false
+        }
+    )
+
+
+    useEffect(() => {
+        window.addEventListener('click', handlePopClose)
+        return () => {
+            window.removeEventListener('click', handlePopClose)
+        }
+    })
+
+    const handlePopClose = (): void => {
+        setpopOpen((prev) => ({
+            ...prev,
+            open: false
+        }))
+    }
+
+
+
 
 
     const handleChange = (e: ChangeEvent<HTMLInputElement>): void => {
@@ -33,12 +67,23 @@ const Form = (): JSX.Element => {
         e.preventDefault()
         try {
             const response = await emailjs.send('service_8i4p5do', 'template_lcztgy6', formInputs, 'fXd413wtNKxbm83_9')
-            // todo 
-            console.log(response)
-            
+
+            setpopOpen({
+                content: response.status === 200 ? 'Message Sent' : 'Something Went Wrong',
+                colorStatus: response.status === 200 ? 'green' : 'error',
+                open: true
+            })
+
+
         } catch (e) {
-            // todo 
             console.log(e)
+
+            setpopOpen({
+                content: 'Something Went Wrong',
+                colorStatus: 'error',
+                open: true
+            })
+
         }
     }
 
@@ -110,6 +155,25 @@ const Form = (): JSX.Element => {
 
                 </Grid>
             </Grid>
+
+
+            <Popover
+                open={popOpen.open}
+                anchorReference="anchorPosition"
+                anchorPosition={{ top: window.innerHeight - 100, left: screen_700 ? window.innerWidth - 110 : window.innerWidth - 200 }}
+                anchorOrigin={{
+                    vertical: 'top',
+                    horizontal: 'left',
+                }}
+                color='success'
+                transformOrigin={{
+                    vertical: 'top',
+                    horizontal: 'center',
+                }}
+            >
+                <Typography color={popOpen.colorStatus} sx={{ p: 2 }}>{popOpen.content}</Typography>
+            </Popover>
+
         </Paper>
     )
 }
