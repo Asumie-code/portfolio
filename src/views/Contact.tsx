@@ -3,6 +3,7 @@ import Box from "@mui/material/Box";
 import Paper from "@mui/material/Paper";
 import Typography from "@mui/material/Typography";
 import useMediaQuery from '@mui/material/useMediaQuery';
+import Map from "../component/Map";
 
 
 const Contact = (): JSX.Element => {
@@ -16,6 +17,7 @@ const Contact = (): JSX.Element => {
                 <Box
                     sx={{
                         display: 'flex',
+                        flexDirection: screen_700? 'column': 'row',
                         '& > :not(style)': {
                             px: 5,
                             py: 6,
@@ -49,6 +51,9 @@ const Contact = (): JSX.Element => {
                             Lorem, ipsum dolor sit amet consectetur adipisicing elit. Facilis provident sint neque cumque, quas perspiciatis modi eveniet magnam, natus aliquid ipsum distinctio ex exercitationem asperiores.
                         </Typography>
                         <Form />
+                    </Paper>
+                    <Paper>
+                        <Map />
                     </Paper>
                 </Box>
 
