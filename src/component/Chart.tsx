@@ -27,7 +27,7 @@ const Chart = ({speed = 10,  value = 0, intervals = 100, backgroundColor = 'whit
     return () => {
       clearInterval(timer);
     };
-  }, [intervals, value, progress]);
+  }, [intervals, value, progress, speed]);
 
   return (
     <LinearProgress
