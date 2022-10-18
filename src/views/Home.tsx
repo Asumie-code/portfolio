@@ -13,7 +13,7 @@ const HomeBackground = styled(Sketch)({
     overflow: 'hidden',
     position: 'absolute',
     top: -6.3,
-    left: -8,
+    left:  -20,
     zIndex: -1
 
 });
@@ -54,10 +54,10 @@ const Home = (): JSX.Element => {
                         component='h1'
                         sx={{
                             mb: 3,
-                            fontSize: (screen_700? '3rem' : '5.5rem'),
+                            fontSize: (screen_700? '3rem' : '5.2rem'),
                             fontWeight: 400,
                             '& > span': {
-                                fontSize: (screen_700? '3rem' : '5.5rem'),
+                                fontSize: (screen_700? '3rem' : '5.2rem'),
                                 fontWeight: 400,
                             }
                         }}
