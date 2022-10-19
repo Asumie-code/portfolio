@@ -6,62 +6,62 @@ import project2_sub1 from '../img/project2/sub_1.jpg'
 import project2_sub2 from '../img/project2/sub_2.jpg'
 
 
-const data: {title: string, mainImage: string, sourceCodeLink: string, link: string, imgs: string[] }[] = [
+const data: {title: string, mainImage: string, sourceCodeLink: string, link: string, imgs: {original: string}[] }[] = [
     {
         title: 'first title',
         mainImage: project1_main,
         sourceCodeLink: '#',
         link: '#', 
-        imgs: [project1_sub1, project1_sub2]
+        imgs: [{original: project1_sub1}, {original: project1_sub2}]
     },
     {
         title: 'second title', 
         mainImage: project2_main,
         sourceCodeLink: '#',
         link: '#', 
-        imgs: [project2_sub1, project2_sub2]
+        imgs: [{original: project2_sub1}, {original: project2_sub2}]
     },
     {
         title: 'second title',
         mainImage: project2_main,
         sourceCodeLink: '#',
         link: '#', 
-        imgs: [project2_sub1, project2_sub2]
+        imgs: [{original: project2_sub1}, {original: project2_sub2}]
     },
     {
         title: 'second title',
         mainImage: project2_main,
         sourceCodeLink: '#',
         link: '#', 
-        imgs: [project2_sub1, project2_sub2]
+        imgs: [{original: project2_sub1}, {original: project2_sub2}]
     },
     {
         title: 'second title',
         mainImage: project2_main,
         sourceCodeLink: '#',
         link: '#', 
-        imgs: [project2_sub1, project2_sub2]
+        imgs: [{original: project2_sub1}, {original: project2_sub2}]
     },
     {
         title: 'second title',
         mainImage: project2_main,
         sourceCodeLink: '#',
         link: '#', 
-        imgs: [project2_sub1, project2_sub2]
+        imgs: [{original: project2_sub1}, {original: project2_sub2}]
     },
     {
         title: 'second title',
         mainImage: project2_main,
         sourceCodeLink: '#',
         link: '#', 
-        imgs: [project2_sub1, project2_sub2]
+        imgs: [{original: project2_sub1}, {original: project2_sub2}]
     },
     {
         title: 'second title',
         mainImage: project2_main,
         sourceCodeLink: '#',
         link: '#', 
-        imgs: [project2_sub1, project2_sub2]
+        imgs: [{original: project2_sub1}, {original: project2_sub2}]
     },
 ]
 

@@ -12,7 +12,7 @@ interface PCardProps {
   projectTitle?: string,
   sourceCodeLink?: string, 
   link?: string,
-  imgs: string[] 
+  imgs: {original: string}[] 
 }
 
 const PCard = ({imgs, link, sourceCodeLink, projectTitle = 'Default Title', mainImage}: PCardProps): JSX.Element => {
