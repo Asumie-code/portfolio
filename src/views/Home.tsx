@@ -1,4 +1,4 @@
-import { Paper, Typography } from "@mui/material";
+import { Paper, Typography, } from "@mui/material";
 import Box from "@mui/material/Box"
 import Button from '@mui/material/Button'
 import { NavLink } from 'react-router-dom';
@@ -6,6 +6,12 @@ import { styled } from "@mui/system";
 import useMediaQuery from '@mui/material/useMediaQuery';
 import homeSketch from '../sketches/homeSketch'
 import Sketch from 'react-p5'
+import { animated, useSpring } from '@react-spring/web'
+
+type allowComponent<muiComponentType> = ReturnType<typeof animated> | muiComponentType
+const AnimatedButton: allowComponent<typeof Button> = animated(Button)
+const AnimatedTypography: allowComponent<typeof Typography> = animated(Typography)
+
 
 
 const HomeBackground = styled(Sketch)({
@@ -13,7 +19,7 @@ const HomeBackground = styled(Sketch)({
     overflow: 'hidden',
     position: 'absolute',
     top: -6.8,
-    left: -20,
+    left: 0,
     zIndex: -1
 
 });
@@ -23,6 +29,36 @@ const HomeBackground = styled(Sketch)({
 
 
 const Home = (): JSX.Element => {
+
+
+    const styles = useSpring({
+        from: {
+            opacity: 0,
+            translate: -300
+        },
+        to: {
+            opacity: 1,
+            translate: 0
+        }
+    })
+
+
+
+    const [value, set] = useSpring(() => ({
+        from: {
+            opacity: 0,
+            translate: -300,
+            y: 100,
+            color: '#fff',
+
+        },
+        to: {
+            opacity: 1,
+            translate: 0,
+            y: 100,
+            color: '#fff'
+        },
+    }))
 
     const screen_700 = useMediaQuery('(max-width: 700px)')
     const screen_1290 = useMediaQuery('(max-width: 1290px)')
@@ -48,7 +84,7 @@ const Home = (): JSX.Element => {
                         color: 'white'
                     }}
                 >
-                    <Typography
+                    <AnimatedTypography
 
                         variant='h1'
                         component='h1'
@@ -60,9 +96,10 @@ const Home = (): JSX.Element => {
                                 fontWeight: 400,
                             }
                         }}
+                        style={styles}
                     >
                         Hi,<br /> I'm<Typography color='primary' component='span'> Issam</Typography><br />Web developer.
-                    </Typography>
+                    </AnimatedTypography>
                     <Typography
                         component='p'
                         sx={{
@@ -72,17 +109,21 @@ const Home = (): JSX.Element => {
                     >
                         Lorem,  ipsum dolor sit amet consectetur adipisicing elit.
                     </Typography>
-                    <Button
+                    <AnimatedButton
+                        onMouseEnter={() => set({ y: 0, color: "#000" })}
+                        onMouseLeave={() => set({  y: 100, color: "#fff" })}
                         component={NavLink}
                         to='/contact'
                         sx={{
                             width: screen_700 ? .8 * 220 : 220,
                             height: screen_700 ? .8 * 50 : 50,
                         }}
+                        style={value}
                         variant='outlined'
                     >
                         Contact  Me!
-                    </Button>
+                    </AnimatedButton>
+
                 </Paper>
             </Box>
             <HomeBackground mouseMoved={homeSketch.mouseMoved} windowResized={homeSketch.windowResized} setup={homeSketch.setup} draw={homeSketch.draw} />
