@@ -7,10 +7,17 @@ import useMediaQuery from '@mui/material/useMediaQuery';
 import homeSketch from '../sketches/homeSketch'
 import Sketch from 'react-p5'
 import { animated, useSpring } from '@react-spring/web'
+import { type allowComponentProp } from "../util/typeUtil";
+import AnimatedLetter from "../component/AnimatedLetter";
+import {colors, randomInt} from '../util/util'
 
-type allowComponent<muiComponentType> = ReturnType<typeof animated> | muiComponentType
-const AnimatedButton: allowComponent<typeof Button> = animated(Button)
-const AnimatedTypography: allowComponent<typeof Typography> = animated(Typography)
+// work around to component prop issue 
+const AnimatedButton: allowComponentProp<typeof Button> = animated(Button)
+const AnimatedTypography: allowComponentProp<typeof Typography> = animated(Typography)
+
+
+
+
 
 
 
@@ -31,7 +38,7 @@ const HomeBackground = styled(Sketch)({
 const Home = (): JSX.Element => {
 
 
-    const styles = useSpring({
+    const slideAnimation = useSpring({
         from: {
             opacity: 0,
             translate: -300
@@ -44,19 +51,18 @@ const Home = (): JSX.Element => {
 
 
 
-    const [value, set] = useSpring(() => ({
+
+    const [buttonAnimation, set] = useSpring(() => ({
         from: {
             opacity: 0,
             translate: -300,
-            y: 100,
-            color: '#fff',
+            scale: 1
 
         },
         to: {
             opacity: 1,
             translate: 0,
-            y: 100,
-            color: '#fff'
+            scale: 1
         },
     }))
 
@@ -85,7 +91,6 @@ const Home = (): JSX.Element => {
                     }}
                 >
                     <AnimatedTypography
-
                         variant='h1'
                         component='h1'
                         sx={{
@@ -96,9 +101,45 @@ const Home = (): JSX.Element => {
                                 fontWeight: 400,
                             }
                         }}
-                        style={styles}
+                        style={slideAnimation}
                     >
-                        Hi,<br /> I'm<Typography color='primary' component='span'> Issam</Typography><br />Web developer.
+                        {Array.from("Hi,").map((item, index) => (
+                            <AnimatedLetter
+                                key={`${index}_${item}`}
+                                hoverColor={colors[randomInt(colors.length)]}
+                                letter={item}
+                            />
+
+                        ))}
+                        <br />
+                        {Array.from("I'm").map((item, index) => (
+                            <AnimatedLetter
+                                key={`${index}_${item}`}
+                                hoverColor={colors[randomInt(colors.length)]}
+                                letter={item}
+                            />
+
+                        ))} {Array.from("Issam").map((item, index) => (item === ' ' ? ' ' :
+                            <AnimatedLetter
+                                key={`${index}_${item}`}
+                                hoverColor={colors[randomInt(colors.length)]}
+                                letter={item}
+                                color='primary'
+                            />
+
+                        ))}
+
+
+                        <br />
+                        {Array.from("Web developer.").map((item, index) => (item === ' ' ? ' ' :
+                            <AnimatedLetter
+                                key={`${index}_${item}`}
+                                hoverColor={colors[randomInt(colors.length)]}
+                                letter={item}
+                            />
+
+                        ))}
+
                     </AnimatedTypography>
                     <Typography
                         component='p'
@@ -110,15 +151,16 @@ const Home = (): JSX.Element => {
                         Lorem,  ipsum dolor sit amet consectetur adipisicing elit.
                     </Typography>
                     <AnimatedButton
-                        onMouseEnter={() => set({ y: 0, color: "#000" })}
-                        onMouseLeave={() => set({  y: 100, color: "#fff" })}
+                        onMouseEnter={() => set({ scale: 1.1 })}
+                        onMouseLeave={() => set({ scale: 1 })}
                         component={NavLink}
                         to='/contact'
                         sx={{
                             width: screen_700 ? .8 * 220 : 220,
                             height: screen_700 ? .8 * 50 : 50,
+
                         }}
-                        style={value}
+                        style={buttonAnimation}
                         variant='outlined'
                     >
                         Contact  Me!
