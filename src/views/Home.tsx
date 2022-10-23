@@ -10,8 +10,9 @@ import { animated, useSpring } from '@react-spring/web'
 import { type allowComponentProp } from "../util/typeUtil";
 import AnimatedLetter from "../component/AnimatedLetter";
 import {colors, randomInt} from '../util/util'
+import {useSlideAnimation} from '../util/animationHooks'
 
-// work around to component prop issue 
+// work around to component prop issue, you can't export Animated button for some reason
 const AnimatedButton: allowComponentProp<typeof Button> = animated(Button)
 const AnimatedTypography: allowComponentProp<typeof Typography> = animated(Typography)
 
@@ -38,24 +39,11 @@ const HomeBackground = styled(Sketch)({
 const Home = (): JSX.Element => {
 
 
-    const slideAnimation = useSpring({
-        from: {
-            opacity: 0,
-            translate: -300
-        },
-        to: {
-            opacity: 1,
-            translate: 0
-        }
-    })
-
-
-
-
+   
     const [buttonAnimation, set] = useSpring(() => ({
         from: {
             opacity: 0,
-            translate: -300,
+            translate: -900,
             scale: 1
 
         },
@@ -99,9 +87,10 @@ const Home = (): JSX.Element => {
                             '& > span': {
                                 fontSize: (screen_700 ? '3rem' : '5.2rem'),
                                 fontWeight: 400,
+                                lineHeight: '0'
                             }
                         }}
-                        style={slideAnimation}
+                        style={useSlideAnimation()}
                     >
                         {Array.from("Hi,").map((item, index) => (
                             <AnimatedLetter

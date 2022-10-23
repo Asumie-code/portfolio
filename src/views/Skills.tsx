@@ -4,33 +4,44 @@ import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
 import useMediaQuery from '@mui/material/useMediaQuery';
 import Chart from '../component/Chart'
+import { type allowComponentProp } from "../util/typeUtil";
+import { animated } from '@react-spring/web'
+import { useSlideAnimation } from "../util/animationHooks";
+import { colors, randomInt } from '../util/util'
+import AnimatedLetter from '../component/AnimatedLetter'
+
+
+
+// work around to component prop issue, you can't export this component for some reason
+const AnimatedTypography: allowComponentProp<typeof Typography> = animated(Typography)
+
 
 
 const skills = [
     {
         name: 'Front-end',
         value: 85,
-        color:  '#B3D3FF',
-         
+        color: '#B3D3FF',
+
 
     },
     {
         name: 'Back-end',
         value: 60,
         color: '#ED4D47',
-         
+
     },
     {
         name: 'ReactJS',
         value: 78,
         color: 'primary',
-         
+
     },
     {
         name: 'NodeJS',
         value: 65,
         color: '#2BAD43',
-         
+
     },
 ]
 
@@ -56,44 +67,85 @@ const Skills = (): JSX.Element => {
                         pl: 5
                     }}
                 >
-                    <Typography
+                    <AnimatedTypography
                         color='primary'
                         variant='h2'
                         component='h2'
                         sx={{
                             mb: '1.5rem',
-                            fontSize: matches ? '2.8rem' : '3.75rem'
+                            '& > span': {
+                                fontSize: matches ? '2.8rem' : '3.75rem',
+                                lineHeight: '0'
+
+                            }
                         }}
+                        style={useSlideAnimation()}
                     >
-                        Lorem,<br /> ipsum dolor <br /> sit amet.
-                    </Typography>
-                    <Typography
+                        {Array.from('Lorem,').map((item, index) => (
+                            item === ' ' ? ' ' :
+                                <AnimatedLetter
+                                    key={`${index}_${item}`}
+                                    hoverColor={colors[randomInt(colors.length)]}
+                                    letter={item}
+                                    color='primary'
+                                />
+                        ))}
+                        <br />
+                        {Array.from('ipsum dolor').map((item, index) => (
+                            item === ' ' ? ' ' :
+                                <AnimatedLetter
+                                    key={`${index}_${item}`}
+                                    hoverColor={colors[randomInt(colors.length)]}
+                                    letter={item}
+                                    color='primary'
+                                />
+                        ))}
+                        <br />
+                        {Array.from('sit amet.').map((item, index) => (
+                            item === ' ' ? ' ' :
+                                <AnimatedLetter
+                                    key={`${index}_${item}`}
+                                    hoverColor={colors[randomInt(colors.length)]}
+                                    letter={item}
+                                    color='primary'
+                                />
+                        ))}
+                        
+                        
+                    </AnimatedTypography>
+                    <AnimatedTypography
                         component='p'
                         sx={{
                             mb: '1.5rem',
                             fontSize: matches ? '0.8rem' : '1rem'
                         }}
+                        style={useSlideAnimation(-600)}
+
                     >
                         Lorem, ipsum dolor sit amet consectetur adipisicing elit. Facilis provident sint neque cumque, quas perspiciatis modi eveniet magnam, natus aliquid ipsum distinctio ex exercitationem asperiores.
-                    </Typography>
-                    <Typography
+                    </AnimatedTypography>
+                    <AnimatedTypography
                         component='p'
                         sx={{
                             mb: '1.5rem',
                             fontSize: matches ? '0.8rem' : '1rem'
                         }}
+                        style={useSlideAnimation(-900)}
+
                     >
                         Lorem, ipsum dolor sit amet consectetur adipisicing elit. Facilis provident sint neque cumque, quas perspiciatis modi eveniet magnam, natus aliquid ipsum distinctio ex exercitationem asperiores. distinctio ex exercitationem asperiores
-                    </Typography>
-                    <Typography
+                    </AnimatedTypography>
+                    <AnimatedTypography
                         component='p'
                         sx={{
                             mb: '1.5rem',
                             fontSize: matches ? '0.8rem' : '1rem'
                         }}
+                        style={useSlideAnimation(-1200)}
+
                     >
                         Lorem, ipsum dolor sit amet consectetur adipisicing elit. Facilis provident sint neque cumque,
-                    </Typography>
+                    </AnimatedTypography>
 
                 </Paper>
                 <Paper
