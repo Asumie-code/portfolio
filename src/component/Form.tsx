@@ -7,8 +7,11 @@ import Typography from '@mui/material/Typography'
 import { ChangeEvent, FormEvent, useState, useEffect } from 'react'
 import emailjs from '@emailjs/browser'
 import useMediaQuery from '@mui/material/useMediaQuery';
+import { useSlideAnimation } from '../util/animationHooks'; 
+import { type allowComponentProp } from '../util/typeUtil';
+import { animated } from '@react-spring/web';
 
-
+const AnimatedGridItem: allowComponentProp<typeof Grid> = animated(Grid)
 
 
 
@@ -95,7 +98,7 @@ const Form = (): JSX.Element => {
                 component='form'
                 onSubmit={sendEmail}
             >
-                <Grid item xs={12} sm={6}>
+                <AnimatedGridItem style={useSlideAnimation(-1200)} item xs={12} sm={6}>
                     <TextField
                         id='name'
                         name='name'
@@ -106,8 +109,8 @@ const Form = (): JSX.Element => {
                         value={formInputs.name}
                         onChange={handleChange}
                     />
-                </Grid>
-                <Grid item xs={12} sm={6}>
+                </AnimatedGridItem>
+                <AnimatedGridItem style={useSlideAnimation(-900)} item xs={12} sm={6}>
                     <TextField
                         required
                         id='email'
@@ -121,8 +124,8 @@ const Form = (): JSX.Element => {
                         onChange={handleChange}
 
                     />
-                </Grid>
-                <Grid item xs={12} >
+                </AnimatedGridItem>
+                <AnimatedGridItem style={useSlideAnimation(-1500)} item xs={12} >
                     <TextField
                         id='subject'
                         name='subject'
@@ -134,8 +137,8 @@ const Form = (): JSX.Element => {
                         onChange={handleChange}
 
                     />
-                </Grid>
-                <Grid item xs={12} >
+                </AnimatedGridItem>
+                <AnimatedGridItem style={useSlideAnimation(-1800)} item xs={12} >
                     <TextField
                         required
                         id='message'
@@ -149,11 +152,11 @@ const Form = (): JSX.Element => {
                         onChange={handleChange}
 
                     />
-                </Grid>
-                <Grid item xs={12} sm={6}>
+                </AnimatedGridItem>
+                <AnimatedGridItem style={useSlideAnimation(-2100)} item xs={12} sm={6}>
                     <Button type='submit' sx={{ mt: 1 }} variant='outlined'>Contact  Me! </Button>
 
-                </Grid>
+                </AnimatedGridItem>
             </Grid>
 
 
