@@ -48,7 +48,7 @@ const Contact = (): JSX.Element => {
                         sx={{
                             mb: '1.5rem',
                             '& > span': {
-                                fontSize: screen_700 ? '2.8rem' : '3.25rem',
+                                fontSize: screen_700 ? '2.3rem' : '3.25rem',
                                 lineHeight: '0'
                                 
                             }

@@ -1,35 +1,36 @@
-import * as React from 'react';
-import AppBar from '@mui/material/AppBar';
-import Box from '@mui/material/Box';
-import Toolbar from '@mui/material/Toolbar';
-import IconButton from '@mui/material/IconButton';
-import Typography from '@mui/material/Typography';
-import Menu from '@mui/material/Menu';
-import MenuIcon from '@mui/icons-material/Menu';
-import Container from '@mui/material/Container';
-import Button from '@mui/material/Button';
-import MenuItem from '@mui/material/MenuItem';
-import CodeIcon from '@mui/icons-material/Code';
-import { NavLink } from 'react-router-dom';
+import * as React from 'react'
+import AppBar from '@mui/material/AppBar'
+import Box from '@mui/material/Box'
+import Toolbar from '@mui/material/Toolbar'
+import IconButton from '@mui/material/IconButton'
+import Typography from '@mui/material/Typography'
+import Menu from '@mui/material/Menu'
+import MenuIcon from '@mui/icons-material/Menu'
+import Container from '@mui/material/Container'
+import Button from '@mui/material/Button'
+import MenuItem from '@mui/material/MenuItem'
+import CodeIcon from '@mui/icons-material/Code'
+import { NavLink } from 'react-router-dom'
+import { colors } from '../util/util'
 
-const pages = ['About', 'Skills', 'Projects', 'Contact'];
+const pages = ['About', 'Skills', 'Projects', 'Contact']
 
 const Nav = (): JSX.Element => {
-  const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(null);
+  const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(null)
 
   const handleOpenNavMenu = (event: React.MouseEvent<HTMLElement>) => {
-    setAnchorElNav(event.currentTarget);
-  };
+    setAnchorElNav(event.currentTarget)
+  }
 
 
   const handleCloseNavMenu = () => {
-    setAnchorElNav(null);
-  };
+    setAnchorElNav(null)
+  }
 
 
 
   return (
-    <AppBar  position="fixed">
+    <AppBar position="fixed">
       <Container maxWidth="xl">
         <Toolbar disableGutters>
           <CodeIcon fontSize='large' sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
@@ -108,13 +109,25 @@ const Nav = (): JSX.Element => {
             ISSAM
           </Typography>
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
-            {pages.map((page) => (
+            {pages.map((page, index) => (
               <Button
                 key={page}
                 onClick={handleCloseNavMenu}
                 component={NavLink}
                 to={`/${page.toLowerCase()}`}
-                sx={{ my: 2, color: 'white', display: 'block' }}
+                sx={{
+                  my: 2,
+                  color: 'white',
+                  display: 'block',
+                  transition: '0.5s',
+                  '&:hover': {
+                    color: colors[index],
+                    backgroundColor: 'transparent',
+                    scale: '1.1'
+
+                  }
+
+                }}
               >
                 {page}
               </Button>
@@ -124,6 +137,9 @@ const Nav = (): JSX.Element => {
         </Toolbar>
       </Container>
     </AppBar>
-  );
-};
-export default Nav;
+  )
+}
+
+
+
+export default Nav

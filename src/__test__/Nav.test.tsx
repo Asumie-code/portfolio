@@ -2,7 +2,7 @@ import { render, screen } from '@testing-library/react';
 import Nav from '../component/Nav';
 import {HashRouter} from 'react-router-dom'
 
-test('renders learn react link', () => {
+it('Should render Nav', () => {
   render(<HashRouter><Nav /></HashRouter>);
   const component = screen.getAllByText(/About/i);
   

@@ -53,7 +53,7 @@ const About = (): JSX.Element => {
                         sx={{
                             mb: '1.5rem',
                             '& > span': {
-                                fontSize: screen_700 ? '2.8rem' : '3.75rem', 
+                                fontSize: screen_700 ? '2.3rem' : '3.75rem', 
                                 lineHeight: '0'
 
                             }

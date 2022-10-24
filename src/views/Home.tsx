@@ -63,7 +63,7 @@ const Home = (): JSX.Element => {
                 sx={{
                     display: 'flex',
                     '& > :not(style)': {
-                        px: 5,
+                        px: screen_700? 4 : 5,
                         py: 6,
                         width: screen_1290 ? 1 : 0.5,
                     },
@@ -82,10 +82,10 @@ const Home = (): JSX.Element => {
                         variant='h1'
                         component='h1'
                         sx={{
-                            fontSize: (screen_700 ? '3rem' : '5.2rem'),
+                            fontSize: (screen_700 ? '2.3rem' : '5.2rem'),
                             fontWeight: 400,
                             '& > span': {
-                                fontSize: (screen_700 ? '3rem' : '5.2rem'),
+                                fontSize: (screen_700 ? '2.3rem' : '5.2rem'),
                                 fontWeight: 400,
                                 lineHeight: '0'
                             }

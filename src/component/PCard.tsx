@@ -5,6 +5,11 @@ import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import { CardActionArea } from '@mui/material';
 import PDialog from './PDialog'
+import { useScaleAnimation } from "../util/animationHooks";
+import { type allowComponentProp } from '../util/typeUtil';
+import { animated } from '@react-spring/web';
+
+const AnimatedCard: allowComponentProp<typeof Card> = animated(Card)
 
 
 interface PCardProps {
@@ -12,10 +17,11 @@ interface PCardProps {
   projectTitle?: string,
   sourceCodeLink?: string, 
   link?: string,
-  imgs: {original: string}[] 
+  imgs: {original: string}[],
+  delay?: number
 }
 
-const PCard = ({imgs, link, sourceCodeLink, projectTitle = 'Default Title', mainImage}: PCardProps): JSX.Element => {
+const PCard = ({imgs, link, sourceCodeLink, projectTitle = 'Default Title', mainImage, delay}: PCardProps): JSX.Element => {
 
   const [open, setOpen] = useState<boolean>(false)
   const handleOpen =  () => {
@@ -29,8 +35,8 @@ const PCard = ({imgs, link, sourceCodeLink, projectTitle = 'Default Title', main
   return (
     <div>
 
-    <Card sx={{ maxWidth: 345 }}>
-      <CardActionArea onClick={handleOpen}>
+    <AnimatedCard sx={{ '&:hover': {boxShadow: '0px 0px 5px 5px  #2E4FF2'},maxWidth: 345 }} style={useScaleAnimation(delay)}>
+      <CardActionArea sx={{}}onClick={handleOpen}>
         <CardMedia
           component="img"
           height="240"
@@ -43,7 +49,7 @@ const PCard = ({imgs, link, sourceCodeLink, projectTitle = 'Default Title', main
           </Typography>
         </CardContent>
       </CardActionArea >
-    </Card>
+    </AnimatedCard>
     <PDialog imgs={imgs} link={link} sourceCodeLink={sourceCodeLink} title={projectTitle} open={open} handleClose={handleClose} />
     </div>
   );

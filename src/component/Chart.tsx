@@ -16,7 +16,6 @@ const Chart = ({speed = 10,  value = 0, intervals = 100, backgroundColor = 'whit
     const timer = setInterval(() => {
       setProgress((oldProgress) => {
         const increment = speed;
-        console.log(oldProgress)
         return oldProgress + increment;
       });
     }, intervals);
