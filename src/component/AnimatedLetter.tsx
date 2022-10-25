@@ -6,7 +6,7 @@ import { type allowComponentProp, } from '../util/typeUtil'
 const AnimatedTypography: allowComponentProp<typeof Typography> = animated(Typography)
 
 interface animatedLetterProps {
-    letter: string,
+    letter?: string,
     color?: string,
     hoverColor?: string
 }
@@ -29,6 +29,7 @@ const AnimatedLetter = ({ letter = 'A', color = '#fff', hoverColor = '#ffe2653' 
 
     return (
         <AnimatedTypography
+            data-testid='animated-typography'
             component='span'
             style={letterAnimation}
             onMouseEnter={() => setLetterAnimation({ loop: true, color: hoverColor, scaleY: 1.5, scaleX: 0.8 })}

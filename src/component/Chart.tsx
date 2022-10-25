@@ -30,6 +30,7 @@ const Chart = ({speed = 10,  value = 0, intervals = 100, backgroundColor = 'whit
 
   return (
     <LinearProgress
+      data-testid='chart'
       sx={{
         backgroundColor: backgroundColor,
         '& > span': {

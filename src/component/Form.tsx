@@ -93,6 +93,7 @@ const Form = (): JSX.Element => {
     return (
         <Paper elevation={0} >
             <Grid
+                data-testid='contact-form'
                 container
                 spacing={3}
                 component='form'
