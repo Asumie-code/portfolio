@@ -74,20 +74,20 @@ function drawParticles(p5: p5Types) {
 }
 
 
-function updateParticle(i: number, p5: p5Types) {
+function updateParticle(i: number, p5: p5Types, collision?: boolean) {
   let i2=1+i , i3=2+i, i4=3+i, i5=4+i, i6=5+i, i7=6+i, i8=7+i, i9=8+i
   let n: number, x: number, y: number, vx: number, vy: number, life: number, ttl: number, speed: number, radius: number, hue: number, x2: number, y2: number
 
   x = particleProps[i]
   y = particleProps[i2]
   n = simplex(x * xOff, y * yOff, tick * zOff) * noiseSteps * TAU
-  vx = lerp(particleProps[i3], cos(n), 0.5)
-  vy = lerp(particleProps[i4], sin(n), 0.5)
+  vx = collision? -20 *  lerp(particleProps[i3], cos(n), 0.5) : lerp(particleProps[i3], cos(n), 0.5)
+  vy = collision? -20 * lerp(particleProps[i4], sin(n), 0.5) : lerp(particleProps[i4], sin(n), 0.5)
   life = particleProps[i5]
   ttl = particleProps[i6]
   speed = particleProps[i7]
-  x2 = x + vx * speed;
-  y2 = y + vy * speed;
+  x2 =  (x + vx * speed);
+  y2 =  (y + vy * speed);
   radius = particleProps[i8]
   hue = particleProps[i9]
 
@@ -132,6 +132,21 @@ function checkBounds(x: number, y: number, p5: p5Types) {
 }
 
 
+function collision (mouseX: number, mouseY: number, mouseR: number, pX: number, pY: number, pR: number) {
+  let a: number, x: number, y: number
+
+  a = mouseR + pR
+  x = mouseX - pX
+  y = mouseY - pY
+
+  if(a > (x*x) + (y*y)) {
+    return true
+  } else {
+    return false
+  }
+
+}
+
 
 
 
@@ -169,8 +184,16 @@ const HomeSketch: {
     
   },
 
-  mouseMoved: () => {
+  mouseMoved: (p5: p5Types, event?: MouseEvent) => {
+    if(event) {
+      for(let i = 0; i < particlePropsLength; i += particlePropCount) {
+        if( collision(event.clientX,event.clientY, 1000, particleProps[i], particleProps[i + 1], particleProps[i + 8] )) {
+          
+            updateParticle(i, p5, true)
+        }
+      }
 
+    }
   },
   
 };
