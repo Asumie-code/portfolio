@@ -1,5 +1,7 @@
 import p5Types, { Vector } from "p5";
-import { rand } from "../util/util";
+import { rand, randIn, floor } from "../util/util";
+
+
 
 
 export class Vehicle {
@@ -10,14 +12,20 @@ export class Vehicle {
     r: number
     maxspeed: number
     maxForce: number
+    baseColor: number
+    rangeColor: number
+    color: number
     constructor(x: number, y: number, p5: p5Types) {
         this.pos = p5.createVector(rand(p5.width), rand(p5.height))
         this.target = p5.createVector(x, y)
-        this.vel = p5.createVector(rand(100), rand(100))
+        this.vel = p5.createVector(randIn(-100, 100), randIn(-100, 100))
         this.acc = p5.createVector()
         this.r = 8;
         this.maxspeed = 10
         this.maxForce = 2
+        this.baseColor = 200
+        this.rangeColor = 100
+        this.color = this.baseColor + rand(this.rangeColor)
     }
 
     behaviors(p5: p5Types) {
@@ -73,8 +81,9 @@ export class Vehicle {
 
 
     render(p5: p5Types) {
-        p5.stroke(255)
-        p5.strokeWeight(8)
+        
+        p5.stroke(`hsla(${floor(this.color)},100%,60%,1)`) 
+        p5.strokeWeight(5)
         p5.point(this.pos.x, this.pos.y)
     }
 

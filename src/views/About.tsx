@@ -129,7 +129,7 @@ const About = (): JSX.Element => {
                         px: screen_700 ? 0 : 5
                     }}
                     preload={aboutSketch.preload}
-                    mouseMoved={aboutSketch.mouseMoved}
+                    mousePressed={aboutSketch.mousePressed}
                     windowResized={aboutSketch.windowResized}
                     setup={aboutSketch.setup}
                     draw={aboutSketch.draw}
