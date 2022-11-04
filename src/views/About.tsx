@@ -60,7 +60,7 @@ const About = (): JSX.Element => {
                         }}
                         style={useSlideAnimation()}
                     >
-                        {Array.from('Lorem,').map((item, index) => (
+                        {Array.from('Intro,').map((item, index) => (
                             item === ' ' ? ' ' :
                                 <AnimatedLetter
                                     key={`${index}_${item}`}
@@ -70,7 +70,7 @@ const About = (): JSX.Element => {
                                 />
                         ))}
                         <br />
-                        {Array.from('ipsum dolor').map((item, index) => (
+                        {Array.from('About Me').map((item, index) => (
                             item === ' ' ? ' ' :
                                 <AnimatedLetter
                                     key={`${index}_${item}`}
@@ -79,8 +79,8 @@ const About = (): JSX.Element => {
                                     color='primary'
                                 />
                         ))}
-                        <br />
-                        {Array.from('sit amet.').map((item, index) => (
+                        
+                        {/* {Array.from('Myself.').map((item, index) => (
                             item === ' ' ? ' ' :
                                 <AnimatedLetter
                                     key={`${index}_${item}`}
@@ -88,7 +88,7 @@ const About = (): JSX.Element => {
                                     letter={item}
                                     color='primary'
                                 />
-                        ))}
+                        ))} */}
                     </AnimatedTypography>
                     <AnimatedTypography
                         component='p'

@@ -1,4 +1,5 @@
 import { Paper, Typography } from "@mui/material";
+import Link from '@mui/material/Link'
 import Box from "@mui/material/Box"
 import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
@@ -9,6 +10,8 @@ import { animated } from '@react-spring/web'
 import { useSlideAnimation } from "../util/animationHooks";
 import { colors, randomInt } from '../util/util'
 import AnimatedLetter from '../component/AnimatedLetter'
+import { NavLink } from 'react-router-dom';
+
 
 
 
@@ -81,7 +84,7 @@ const Skills = (): JSX.Element => {
                         }}
                         style={useSlideAnimation()}
                     >
-                        {Array.from('Lorem,').map((item, index) => (
+                        {Array.from('Skills &').map((item, index) => (
                             item === ' ' ? ' ' :
                                 <AnimatedLetter
                                     key={`${index}_${item}`}
@@ -91,7 +94,7 @@ const Skills = (): JSX.Element => {
                                 />
                         ))}
                         <br />
-                        {Array.from('ipsum dolor').map((item, index) => (
+                        {Array.from('Experience').map((item, index) => (
                             item === ' ' ? ' ' :
                                 <AnimatedLetter
                                     key={`${index}_${item}`}
@@ -100,7 +103,7 @@ const Skills = (): JSX.Element => {
                                     color='primary'
                                 />
                         ))}
-                        <br />
+                        {/* <br />
                         {Array.from('sit amet.').map((item, index) => (
                             item === ' ' ? ' ' :
                                 <AnimatedLetter
@@ -109,7 +112,7 @@ const Skills = (): JSX.Element => {
                                     letter={item}
                                     color='primary'
                                 />
-                        ))}
+                        ))} */}
                         
                         
                     </AnimatedTypography>
@@ -122,7 +125,7 @@ const Skills = (): JSX.Element => {
                         style={useSlideAnimation(-600)}
 
                     >
-                        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Facilis provident sint neque cumque, quas perspiciatis modi eveniet magnam, natus aliquid ipsum distinctio ex exercitationem asperiores.
+                       I've been coding and programming for five years, through those five years I've been constantly learning and developing my skills, I am flexible when it comes to learning or using new technologies and concepts. 
                     </AnimatedTypography>
                     <AnimatedTypography
                         component='p'
@@ -133,7 +136,7 @@ const Skills = (): JSX.Element => {
                         style={useSlideAnimation(-900)}
 
                     >
-                        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Facilis provident sint neque cumque, quas perspiciatis modi eveniet magnam, natus aliquid ipsum distinctio ex exercitationem asperiores. distinctio ex exercitationem asperiores
+                        I can create responsive websites that are easy to use, and high-performing, that follows industry standards and best practices. My main field is front-end development, HTML, CSS, JS, TypeScript, building web apps, features, animations, and interactive UI.
                     </AnimatedTypography>
                     <AnimatedTypography
                         component='p'
@@ -144,7 +147,18 @@ const Skills = (): JSX.Element => {
                         style={useSlideAnimation(-1200)}
 
                     >
-                        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Facilis provident sint neque cumque,
+                      As for the Back-end I have  comparable experience to my Front-end experience, I can Build API from scratch using technologies like NodeJS, ExpressJs, MongoDB. or Implement complex logic, like authentication, File streaming, or data handling 
+                    </AnimatedTypography>
+                    <AnimatedTypography
+                        component='p'
+                        sx={{
+                            mb: '1.5rem',
+                            fontSize: matches ? '0.8rem' : '1rem'
+                        }}
+                        style={useSlideAnimation(-1500)}
+
+                    >
+                        visit my <Link href='' underline='none'>LinkedIn</Link> to get to know me. or just <Link component={NavLink} to='/contact' underline='none'>contact</Link> me.
                     </AnimatedTypography>
 
                 </Paper>

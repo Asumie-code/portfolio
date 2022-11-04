@@ -15,6 +15,7 @@ import './pdialog.css'
 
 interface PDProps {
   title?: string,
+  desc?: string,
   sourceCodeLink?: string,
   link?: string,
   imgs: { original: string }[]
@@ -22,7 +23,7 @@ interface PDProps {
   handleClose: () => void
 }
 
-const PDialog = ({ sourceCodeLink = '#', link = '#', imgs, title = 'default title', open, handleClose }: PDProps): JSX.Element => {
+const PDialog = ({ desc = '', sourceCodeLink = '#', link = '#', imgs, title = 'default title', open, handleClose }: PDProps): JSX.Element => {
 
   return (
 
@@ -34,7 +35,10 @@ const PDialog = ({ sourceCodeLink = '#', link = '#', imgs, title = 'default titl
       aria-describedby="scroll-dialog-description"
     >
       <DialogTitle id="scroll-dialog-title">{title}</DialogTitle>
-      <DialogContent dividers>
+      <DialogContent
+        dividers
+        
+      >
         <Card sx={{ maxWidth: 600, mb: 2 }}>
           <ImageGallery
             additionalClass='mybutton'
@@ -44,11 +48,11 @@ const PDialog = ({ sourceCodeLink = '#', link = '#', imgs, title = 'default titl
         </Card>
         <DialogContentText
           id="scroll-dialog-description"
+          sx={{
+            p: 1
+          }}
         >
-          Cras mattis consectetur purus sit amet fermentum.
-          Cras justo odio, dapibus ac facilisis in, egestas eget quam.
-          Morbi leo risus, porta ac consectetur ac, vestibulum at eros.
-          Praesent commodo cursus magna, vel scelerisque nisl consectetur et.
+          {desc} 
         </DialogContentText>
       </DialogContent>
       <DialogActions>

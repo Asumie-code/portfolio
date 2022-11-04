@@ -15,13 +15,14 @@ const AnimatedCard: allowComponentProp<typeof Card> = animated(Card)
 interface PCardProps {
   mainImage: string,
   projectTitle?: string,
+  desc?: string,
   sourceCodeLink?: string,
   link?: string,
   imgs: { original: string }[],
   delay?: number
 }
 
-const PCard = ({ imgs, link, sourceCodeLink, projectTitle = 'Default Title', mainImage, delay }: PCardProps): JSX.Element => {
+const PCard = ({ desc, imgs, link, sourceCodeLink, projectTitle = 'Default Title', mainImage, delay }: PCardProps): JSX.Element => {
 
   const [open, setOpen] = useState<boolean>(false)
   const handleOpen = () => {
@@ -50,7 +51,7 @@ const PCard = ({ imgs, link, sourceCodeLink, projectTitle = 'Default Title', mai
           </CardContent>
         </CardActionArea >
       </AnimatedCard>
-      <PDialog imgs={imgs} link={link} sourceCodeLink={sourceCodeLink} title={projectTitle} open={open} handleClose={handleClose} />
+      <PDialog desc={desc} imgs={imgs} link={link} sourceCodeLink={sourceCodeLink} title={projectTitle} open={open} handleClose={handleClose} />
     </div>
   );
 }

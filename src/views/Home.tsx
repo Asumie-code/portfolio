@@ -134,10 +134,11 @@ const Home = (): JSX.Element => {
                         component='p'
                         sx={{
                             mb: 3,
-                            fontSize: (screen_700 ? '0.75rem' : '1rem')
+                            fontSize: (screen_700 ? '0.75rem' : '1rem'),
+                            letterSpacing: 2
                         }}
                     >
-                        Lorem,  ipsum dolor sit amet consectetur adipisicing elit.
+                        Fronted End Developer / Back End Developer.
                     </Typography>
                     <AnimatedButton
                         onMouseEnter={() => set({ scale: 1.1 })}

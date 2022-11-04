@@ -155,7 +155,7 @@ const Form = (): JSX.Element => {
                     />
                 </AnimatedGridItem>
                 <AnimatedGridItem style={useSlideAnimation(-2100)} item xs={12} sm={6}>
-                    <Button type='submit' sx={{ mt: 1 }} variant='outlined'>Contact  Me! </Button>
+                    <Button type='submit' sx={{ mt: 1 }} variant='outlined'>Send Message! </Button>
 
                 </AnimatedGridItem>
             </Grid>
