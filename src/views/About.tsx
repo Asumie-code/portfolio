@@ -80,15 +80,6 @@ const About = (): JSX.Element => {
                                 />
                         ))}
                         
-                        {/* {Array.from('Myself.').map((item, index) => (
-                            item === ' ' ? ' ' :
-                                <AnimatedLetter
-                                    key={`${index}_${item}`}
-                                    hoverColor={colors[randomInt(colors.length)]}
-                                    letter={item}
-                                    color='primary'
-                                />
-                        ))} */}
                     </AnimatedTypography>
                     <AnimatedTypography
                         component='p'

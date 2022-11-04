@@ -103,18 +103,7 @@ const Skills = (): JSX.Element => {
                                     color='primary'
                                 />
                         ))}
-                        {/* <br />
-                        {Array.from('sit amet.').map((item, index) => (
-                            item === ' ' ? ' ' :
-                                <AnimatedLetter
-                                    key={`${index}_${item}`}
-                                    hoverColor={colors[randomInt(colors.length)]}
-                                    letter={item}
-                                    color='primary'
-                                />
-                        ))} */}
-                        
-                        
+                                                
                     </AnimatedTypography>
                     <AnimatedTypography
                         component='p'
