@@ -9,6 +9,8 @@ import { animated } from '@react-spring/web'
 import { useSlideAnimation } from "../util/animationHooks";
 import AnimatedLetter from "../component/AnimatedLetter";
 import { colors, randomInt } from '../util/util'
+import Link from '@mui/material/Link'
+import { NavLink } from 'react-router-dom';
 
 
 
@@ -89,7 +91,7 @@ const About = (): JSX.Element => {
                         }}
                         style={useSlideAnimation(-900)}
                     >
-                        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Facilis provident sint neque cumque, quas perspiciatis modi eveniet magnam, natus aliquid ipsum distinctio ex exercitationem asperiores.
+                      I'm a Full Stack Web Developer located in Tunisia. I'm passionate about building software and UI. I like everything that is related to visual design. from animation to interesting UI designs. 
                     </AnimatedTypography>
                     <AnimatedTypography
                         component='p'
@@ -100,7 +102,8 @@ const About = (): JSX.Element => {
                         }}
                         style={useSlideAnimation(-1200)}
                     >
-                        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Facilis provident sint neque cumque, quas perspiciatis modi eveniet magnam, natus aliquid ipsum distinctio ex exercitationem asperiores. distinctio ex exercitationem asperiores
+                     Highly-organised person, problem solver, attentive to details. I like to draw and  3d model and  read, Feel free to check my art <Link href='https://www.artstation.com/asumie_art' underline='none'>portfolio</Link>. I like to use my coding skills in my everyday life ex: scrapping the web and generating assets for my art. 
+                     I speak English and Arabic, I can read and understand french.
                     </AnimatedTypography>
                     <AnimatedTypography
                         component='p'
@@ -111,7 +114,18 @@ const About = (): JSX.Element => {
                         }}
                         style={useSlideAnimation(-1500)}
                     >
-                        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Facilis provident sint neque cumque,
+                        Interested in Front-end and Machine Learning. and building unique UI.  
+                    </AnimatedTypography>
+                    <AnimatedTypography
+                        component='p'
+                        sx={{
+                            mb: '1.5rem',
+                            fontSize: screen_700 ? '0.8rem' : '1rem'
+
+                        }}
+                        style={useSlideAnimation(-1800)}
+                    >
+                         <Link component={NavLink} to='/contact' underline='none'>Let's make something speacial</Link>
                     </AnimatedTypography>
 
                 </Paper>

@@ -147,7 +147,7 @@ const Skills = (): JSX.Element => {
                         style={useSlideAnimation(-1500)}
 
                     >
-                        visit my <Link href='' underline='none'>LinkedIn</Link> to get to know me. or just <Link component={NavLink} to='/contact' underline='none'>contact</Link> me.
+                        visit my <Link href='https://www.linkedin.com/in/issam-alriahi-a34483201/' underline='none'>LinkedIn</Link> to get to know me. or just <Link component={NavLink} to='/contact' underline='none'>contact</Link> me.
                     </AnimatedTypography>
 
                 </Paper>

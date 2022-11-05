@@ -12,6 +12,8 @@ import MenuItem from '@mui/material/MenuItem'
 import CodeIcon from '@mui/icons-material/Code'
 import { NavLink } from 'react-router-dom'
 import { colors } from '../util/util'
+import GitHubIcon from '@mui/icons-material/GitHub'
+import LinkedInIcon from '@mui/icons-material/LinkedIn';
 
 const pages = ['About', 'Skills', 'Projects', 'Contact']
 
@@ -118,7 +120,7 @@ const Nav = (): JSX.Element => {
                 sx={{
                   my: 2,
                   color: 'white',
-                  display: 'block',
+                  display: 'inline-block',
                   transition: '0.5s',
                   '&:hover': {
                     color: colors[index],
@@ -132,6 +134,14 @@ const Nav = (): JSX.Element => {
                 {page}
               </Button>
             ))}
+          </Box>
+          <Box>
+            <Button  href='https://github.com/Asumie-code/portfolio'>
+              <GitHubIcon sx={{ mr: 1 }} /> source code
+            </Button>
+            <Button href='https://www.linkedin.com/in/issam-alriahi-a34483201/'>
+              <LinkedInIcon /> 
+            </Button>
           </Box>
 
         </Toolbar>

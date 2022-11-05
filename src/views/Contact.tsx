@@ -73,7 +73,7 @@ const Contact = (): JSX.Element => {
                         }}
                         style={useSlideAnimation(-600)}
                     >
-                        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Facilis provident sint neque cumque, quas perspiciatis modi eveniet magnam, natus aliquid ipsum distinctio ex exercitationem asperiores.
+                        I am up to freelance or full-time part-time  opportunities. If you have other requests or questions, feel free to use the form.  
                     </AnimatedTypography>
                     <Form />
                 </Paper>
