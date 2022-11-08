@@ -27,7 +27,7 @@ const HomeBackground = styled(Sketch)({
     overflow: 'hidden',
     position: 'absolute',
     top: -6.8,
-    left: 0,
+    left: -20,
     zIndex: -1
 
 });
@@ -65,7 +65,8 @@ const Home = (): JSX.Element => {
                     '& > :not(style)': {
                         px: screen_700? 4 : 5,
                         py: 6,
-                        width: screen_1290 ? 1 : 0.5,
+                        width: screen_1290 ? 1 : 0.6,
+                        mb: 1,
                     },
                     backgroundColor: 'transparent',
                 }}
