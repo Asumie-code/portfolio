@@ -102,7 +102,7 @@ const About = (): JSX.Element => {
                         }}
                         style={useSlideAnimation(-1200)}
                     >
-                     Highly-organised person, problem solver, attentive to details. I like to draw and  3d model and  read, Feel free to check my art <Link href='https://www.artstation.com/asumie_art' underline='none'>portfolio</Link>. I like to use my coding skills in my everyday life ex: scrapping the web and generating assets for my art. 
+                     Highly-organised person, problem solver, attentive to details. I like to draw and  3d model and  read,  I like to use my coding skills in my everyday life ex: scrapping the web and generating assets for my art. 
                      I speak English and Arabic, I can read and understand french.
                     </AnimatedTypography>
                     <AnimatedTypography
